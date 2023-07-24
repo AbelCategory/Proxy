@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+../../main
+../../client/main &
+# change the line above to start your own server
+# node ~/Code/proxy/socks5 &
+# ../bin/proxy &
+
+# Wait until the server is open for connections
+until lsof -i :$PORT > /dev/null; do sleep .1; done
