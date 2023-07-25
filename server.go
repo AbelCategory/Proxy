@@ -11,8 +11,6 @@ import (
     "time"
 )
 
-var is_TLS = true
-
 func Auth(client net.Conn) error {
     var A [260]byte
     n, err := io.ReadFull(client, A[:2])
@@ -254,6 +252,7 @@ func Socks5_Proxy(s string) error {
         // fmt.Println("linsten_err:", err)
         return errors.New("listen_err: " + err.Error())
     }
+    fmt.Println("????")
     for {
         client, err := conn.Accept()
         if err != nil {
